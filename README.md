@@ -1,71 +1,109 @@
-# code-stringify-tools README
+Code Stringify Tools
 
-This is the README for your extension "code-stringify-tools". After writing up a brief description, we recommend including the following sections.
+Convert selected JavaScript/JSON code into an escaped string and back — quickly and safely.
 
-## Features
+✨ Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Convert selected code to a JSON-escaped string
 
-For example if there is an image subfolder under your extension project workspace:
+Convert an escaped JSON string back to normal code
 
-\!\[feature X\]\(images/feature-x.png\)
+Replace selection or copy result to clipboard
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+Quick access via context menu
 
-## Requirements
+Keyboard shortcut for fast stringify + copy
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+🚀 Usage
 
-## Extension Settings
+Example: 
+![Example](images/example.gif)
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+1️⃣ Stringify (Replace Selection)
 
-For example:
+Select any code:
 
-This extension contributes the following settings:
+function main() {
+  console.log("Hello World!");
+}
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+main();
 
-## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Run:
 
-## Release Notes
+Stringify: Replace Selection
 
-Users appreciate release notes as you update your extension.
 
-### 1.0.0
+Result:
 
-Initial release of ...
+"function main() {\r\n  console.log(\"Hello World!\");\r\n}\r\n\r\nmain();"
 
-### 1.0.1
+2️⃣ Stringify (Copy Only)
 
-Fixed issue #.
+Select code and run:
 
-### 1.1.0
+Stringify: Copy
 
-Added features X, Y, and Z.
 
----
+The escaped string will be copied to your clipboard.
 
-## Following extension guidelines
+3️⃣ Destringify (Replace Selection)
 
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
+Select a valid JSON string:
 
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
+"console.log(\"Hello World\")"
 
-## Working with Markdown
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+Run:
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+Destringify: Replace Selection
 
-## For more information
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+It converts back to normal code.
 
-**Enjoy!**
+4️⃣ Destringify (Copy Only)
+
+Same as above, but copies the parsed result instead of replacing.
+
+⌨️ Keyboard Shortcut
+Ctrl + Alt + C
+
+
+Stringifies the selected code and copies the result to the clipboard.
+
+📦 Supported Formats
+
+JavaScript
+
+JSON strings
+
+Uses:
+
+JSON.stringify
+
+JSON.parse
+
+⚠️ Important
+
+The destringify command requires a valid JSON string.
+
+If the selection is invalid, an error message will be shown.
+
+Empty selections are ignored.
+
+🛣 Roadmap
+
+Future improvements may include:
+
+Language-specific string formats (C#, SQL, etc.)
+
+Smart detection of stringified content
+
+Submenu grouping for cleaner context menu
+
+Configurable formatting options
+
+🧑‍💻 Author
+
+Developed as a lightweight productivity tool for developers who frequently need to escape and unescape code snippets.

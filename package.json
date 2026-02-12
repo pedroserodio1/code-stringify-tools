@@ -1,21 +1,85 @@
 {
   "name": "code-stringify-tools",
-  "displayName": "code-stringify-tools",
+  "displayName": "Code Stringify Tools",
   "description": "Convert selected code to escaped string and back.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.109.0"
   },
-  "categories": ["Other", "Programming Languages"],
-  "keywords": ["stringify", "escape", "code", "convert", "utility"],
+  "categories": [
+    "Other",
+    "Programming Languages"
+  ],
+    "keywords": [
+    "stringify",
+    "json",
+    "escape",
+    "code",
+    "convert",
+    "utility"
+  ],
   "publisher": "PedroSerodio",
   "activationEvents": [],
   "main": "./dist/extension.js",
-  "contributes": {
+"contributes": {
     "commands": [
       {
-        "command": "code-stringify-tools.helloWorld",
-        "title": "Hello World"
+        "command": "codeStringify.stringifyReplace",
+        "title": "Stringify: Replace Selection"
+      },
+      {
+        "command": "codeStringify.stringifyCopy",
+        "title": "Stringify: Copy"
+      },
+      {
+        "command": "codeStringify.destringifyReplace",
+        "title": "Destringify: Replace Selection"
+      },
+      {
+        "command": "codeStringify.destringifyCopy",
+        "title": "Destringify: Copy"
+      }
+    ],
+
+    "submenus": [
+      {
+        "id": "codeStringify.submenu",
+        "label": "Stringify Tools"
+      }
+    ],
+
+    "menus": {
+      "editor/context": [
+        {
+          "submenu": "codeStringify.submenu",
+          "group": "navigation"
+        }
+      ],
+      "codeStringify.submenu": [
+        {
+          "command": "codeStringify.stringifyReplace",
+          "group": "1_stringify"
+        },
+        {
+          "command": "codeStringify.stringifyCopy",
+          "group": "1_stringify"
+        },
+        {
+          "command": "codeStringify.destringifyReplace",
+          "group": "2_destringify"
+        },
+        {
+          "command": "codeStringify.destringifyCopy",
+          "group": "2_destringify"
+        }
+      ]
+    },
+
+    "keybindings": [
+      {
+        "command": "codeStringify.stringifyCopy",
+        "key": "ctrl+alt+c",
+        "when": "editorTextFocus && editorHasSelection"
       }
     ]
   },
